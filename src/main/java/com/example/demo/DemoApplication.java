@@ -18,6 +18,9 @@ public class DemoApplication {
 		System.setProperty("GITHUB_CLIENT_SECRET", dotenv.get("GITHUB_CLIENT_SECRET"));
 		System.setProperty("JWT_SECRET_KEY", dotenv.get("JWT_SECRET_KEY"));
 		System.setProperty("JWT_SECRET_KEY", dotenv.get("JWT_SECRET_KEY"));
+		System.setProperty("LINKEDIN_CLIENT_ID", dotenv.get("LINKEDIN_CLIENT_ID"));
+		System.setProperty("LINKEDIN_CLIENT_SECRET", dotenv.get("LINKEDIN_CLIENT_SECRET"));
+		System.setProperty("APP_CLIENT_URL", dotenv.get("APP_CLIENT_URL"));
 		SpringApplication.run(DemoApplication.class, args);
 	}
 

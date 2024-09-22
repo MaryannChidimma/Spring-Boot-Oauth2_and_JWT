@@ -26,6 +26,14 @@ spring:
     oauth2:
       client:
         registration:
+          linkedin:
+            client-id: ${LINKEDIN_CLIENT_ID}
+            client-secret: ${LINKEDIN_CLIENT_SECRET}
+            scope: [ r_liteprofile, r_emailaddress ]
+            redirect-uri: "{baseUrl}/login/oauth2/code/linkedin"
+            client-authentication-method: post
+            authorization-grant-type: authorization_code
+            client-name: LinkedIn
           google:
             client-id: ${GOOGLE_CLIENT_ID}
             client-secret: ${GOOGLE_CLIENT_SECRET}
@@ -49,6 +57,11 @@ spring:
             token-uri: https://github.com/login/oauth/access_token
             user-info-uri: https://api.github.com/user
             user-name-attribute: id
+          linkedin:
+           authorization-uri: https://www.linkedin.com/oauth/v2/authorization
+           token-uri: https://www.linkedin.com/oauth/v2/accessToken
+           user-info-uri: https://api.linkedin.com/v2/me
+           user-name-attribute: id
 
 logging:
   level:
