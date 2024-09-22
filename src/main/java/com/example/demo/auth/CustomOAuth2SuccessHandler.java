@@ -19,7 +19,6 @@ public class CustomOAuth2SuccessHandler implements AuthenticationSuccessHandler 
 
     @Override
     public void onAuthenticationSuccess(HttpServletRequest request, HttpServletResponse response, Authentication authentication) throws IOException, ServletException {
-        System.out.println("Got hereee!!");
         OAuth2User oauth2User = (OAuth2User) authentication.getPrincipal();
         String username = oauth2User.getAttribute("email");
 
@@ -28,8 +27,6 @@ public class CustomOAuth2SuccessHandler implements AuthenticationSuccessHandler 
             username = getLinkedInEmail(oauth2User);
         }
         String token = jwtService.generateToken(username);
-        //check if user exists in the db
-        //if not create a new user
         response.sendRedirect(System.getProperty("APP_CLIENT_URL") + "?token=" + token);
     }
 
